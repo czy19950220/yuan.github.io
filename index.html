@@ -2,106 +2,100 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>源</title>
+    <script src="https://s1.pstatp.com/cdn/expire-1-M/jquery/1.10.2/jquery.min.js"></script>
     <style>
-        ul{
-            list-style-type: decimal;
+        @media screen and (min-width:1200px){
+            /*li{width:calc(20% - 5px)}*/
         }
+        @media screen and (min-width:90px) and (max-width:1200px){
+            li{width:calc(20% - 5px) !important;}
+        }
+        @media screen and (min-width:600px) and (max-width:900px){
+            li{width:calc(33% - 5px) !important;}
+        }
+        @media screen and (max-width:600px){
+            li{width:100% !important;}
+        }
+        *{padding: 0;margin: 0;}
+        ul:after{content:"";display:block;clear:both;}
+        ul{zoom:1;max-width: 1200px;margin: 0 auto;}
         li{
-            text-align: left;
+            width:calc(20% - 5px);height:auto;
+            padding:50px 0;text-align:center;
+            margin:0 5px 10px 0;font-size:28px;
+            float:left;color:#fff;font-weight:bold;
+            list-style-type:none;
+            cursor: pointer;
+            height: 80px;
+        }
+        li span{
+          font-size: 12px;
+          width: 80%;
+          margin: auto;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: block;
+          overflow-wrap: break-word;
+          margin-top: 8px;
         }
     </style>
 </head>
 <body>
-    <center style="width: 80%;max-width: 800px;margin: auto;background-color: antiquewhite;">
-        <h4>电视盒子仓库</h4>
-        <ul>
-            <li>
-                <a href="https://cyuan.netlify.app/tvbox/duo.json" target="_blank">
-                    https://cyuan.netlify.app/tvbox/duo.json
-                </a>
-            </li>
-            <li>
-                <a href="https://cyuan.netlify.app/tvbox/lc.txt" target="_blank">
-                    https://cyuan.netlify.app/tvbox/lc.txt
-                </a>
-            </li>
-            <li>
-                <a href="https://cyuan.netlify.app/tvbox/store18.json" target="_blank">
-                    https://cyuan.netlify.app/tvbox/store18.json
-                </a>
-            </li>
-		
-        </ul>
-        <h5>18+直播源</h5>
-	    <ul>
-            <li>
-                <a href="https://cyuan.netlify.app/tvbox/lives/18+/18+2023.txt" target="_blank">
-                    https://cyuan.netlify.app/tvbox/lives/18+/18+2023.txt
-                </a>
-            </li>
-            <li>
-                <a href="https://cyuan.netlify.app/tvbox/lives/18+/18%F0%9F%88%B2%EF%B8%8F.txt" target="_blank">
-                    https://cyuan.netlify.app/tvbox/lives/18+/18%F0%9F%88%B2%EF%B8%8F.txt
-                </a>
-            </li>
-            
-		
-        </ul>
-        </br>
-        <h4>ZY-Player仓库</h4>
-        <ul>
-		<h5>ZY-Player仓库-转存可用</h5>
-		<li>
-			<a href="https://cyuan.netlify.app/zy-player/zy-player-using.json" target="_blank">
-			    https://cyuan.netlify.app/zy-player/zy-player-using.json
-			</a>
-		</li>
-            <li>
-                <a href="https://cyuan.netlify.app/zy-player/daiweichun.json" target="_blank">
-                    https://cyuan.netlify.app/zy-player/daiweichun.json
-                </a>
-            </li>
-            <li>
-                <a href="https://cyuan.netlify.app/zy-player/waynfifdwj.json" target="_blank">
-                    https://cyuan.netlify.app/zy-player/waynfifdwj.json
-                </a>
-            </li>
-            <li>
-                <a href="https://cyuan.netlify.app/zy-player/sites2.json" target="_blank">
-                    https://cyuan.netlify.app/zy-player/sites2.json
-                </a>
-            </li>
-			<h5>ZY-Player仓库-收集</h5>
-			<li>
-			    <a href="https://fastly.jsdelivr.net/gh/ls125781003/dmtg@master/zy.json" target="_blank">
-			        https://fastly.jsdelivr.net/gh/ls125781003/dmtg@master/zy.json
-			    </a>
-			</li>
-			<li>
-			    <a href="https://yydsys.top/x.json" target="_blank">
-			        https://yydsys.top/x.json
-			    </a>
-			</li>
-			<li>
-			    <a href="https://www.qijishow.com/down/ZY%20Player.html" target="_blank">
-			        https://www.qijishow.com/down/ZY%20Player.html
-			    </a>
-			</li>
-			<li>
-			    <a href="https://agit.ai/guot54/ygbh/raw/branch/master/zy.json" target="_blank">
-			        https://agit.ai/guot54/ygbh/raw/branch/master/zy.json
-			    </a>
-			</li>
-			<li>
-			    <a href="https://jsd.cdn.zzko.cn/gh/ls125781003/dmtg@master/zy.json" target="_blank">
-			        https://jsd.cdn.zzko.cn/gh/ls125781003/dmtg@master/zy.json
-			    </a>
-			</li>
-        </ul>
-        </br>
-    </center>
+  <center>
+    <h1>电视盒子源表</h1>
+    <h4>点击复制</h4>
+  </center>
+    
+    <ul id="ul"></ul>
+  <center>
+    <h4>如果有更多好看好用的 可以私信</h4>
+  </center>
+    
 </body>
+<script>
+function Toast(msg, duration) {
+  duration = isNaN(duration) ? 3000 : duration;
+  var m = document.createElement('div');
+  m.innerHTML = msg;
+  m.style.cssText = "font-family:siyuan;max-width:60%;min-width: 150px;padding:0 14px;height: 40px;color: rgb(255, 255, 255);line-height: 40px;text-align: center;border-radius: 4px;position: fixed;top: 2%;left: 50%;transform: translate(-50%, -50%);z-index: 999999;background: rgba(0, 0, 0,.7);font-size: 16px;";
+  document.body.appendChild(m);
+  setTimeout(function() {
+      var d = 0.5;
+      m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
+      m.style.opacity = '0';
+      setTimeout(function() {
+          document.body.removeChild(m)
+      }, d * 1000);
+  }, duration);
+}
+const list = [
+  {color:"#48c0a4",url:"https://cyuan.netlify.app/tvbox/duo.json",name:"多仓"},
+  {color:"#549688",url:"https://cyuan.netlify.app/tvbox/lc.txt",name:"绿茶18+"},
+  {color:"#69b0ac",url:"https://cyuan.netlify.app/tvbox/store18.json",name:"18+多仓"},
+  {color:"#91ad70",url:"https://cyuan.netlify.app/tvbox/lives/18+/18+2023.txt",name:"18+直播"},
+  {color:"#91ad70",url:"https://cyuan.netlify.app/tvbox/lives/18+/18%F0%9F%88%B2%EF%B8%8F.txt",name:"18+直播"},
+  {color:"#7398Ab",url:"https://cyuan.netlify.app/zy-player/sites2.json",name:"ZY-Player仓库"},
+  {color:"#b4caa0",url:"https://fastly.jsdelivr.net/gh/ls125781003/dmtg@master/zy.json",name:"裹柳"},
+  {color:"#5dac81",url:"https://yydsys.top/x.json",name:"若竹"},
+  {color:"#376b6d",url:"https://agit.ai/guot54/ygbh/raw/branch/master/zy.json",name:"薄青"},
+  {color:"#91b493",url:"https://jsd.cdn.zzko.cn/gh/ls125781003/dmtg@master/zy.json",name:"松绿"},
+  
+];
+$("#ul").html(()=>{
+  let html = "";
+  list.forEach(function (v) {
+    // html+="<li style='background:"+v.color+"'>"+v.name+"<br/>"+v.color+"</li>";
+    html+="<li style='background:"+v.color+"' onclick='copy(this)'><input type=\"hidden\" value='"+v.url+"'>"+v.name+"<br/>"+"<span>"+v.url+"</span>"+"</li>";
+  });
+  return html;
+});
+//复制到剪切板 函数
+function copy(that){
+  $(that).children("input").attr("type","text").select();
+  document.execCommand("Copy"); // 执行浏览器复制命令
+  $(that).children("input").attr("type","hidden");
+  Toast("复制成功",500);
+}
+</script>
 </html>
